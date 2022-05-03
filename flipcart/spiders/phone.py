@@ -7,7 +7,7 @@ class phoneSpider(scrapy.Spider):
     base_url = 'https://www.flipkart.com'
     def parse(self, response):
         for product in response.css('a._1fQZEK'):
-
+            id = 0
             try: 
                 MSRP = product.css('div._3I9_wc._27UcVY::text')[1].get(),
             except: 
@@ -54,4 +54,3 @@ class phoneSpider(scrapy.Spider):
 
         if next_page is not None:
             yield response.follow(next_page, callback=self.parse)
-

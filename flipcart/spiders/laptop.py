@@ -38,9 +38,6 @@ class laptopSpider(scrapy.Spider):
                 'review' : review,
                 'url' : self.base_url +  product.attrib['href']
             }
-         
-      
-
         try:
             next_page = response.css('a._1LKTO3')[1].attrib['href']
             print('************************try*******************')
